@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import ApiBiblioteca.entity.Editora;
 import ApiBiblioteca.entity.Livro;
 import ApiBiblioteca.repository.BiblioRepository;
 
@@ -45,5 +46,31 @@ public class BiblioService {
 		List<Livro> livros = this.biblioRepo.findAll();
 		return livros;
 	}
+	
+	public List<Livro> findByAno (int ano) {
+		List<Livro> livros = this.biblioRepo.findByAno(ano);
+		return livros;
+	}
+	
+	public List<Livro> findByAutorNome(String nome){
+		List<Livro> livros = this.biblioRepo.findByAutorNome(nome);
+		return livros;
+	}
+	
+	public List<Livro> findByEditora(long id_editora){
+		Editora editora = new Editora();
+		editora.setId(id_editora);
+		List<Livro> livros = this.biblioRepo.findByEditora(editora);
+		return livros;
+	}
+	
+	public List<Livro> findBeforeYear(int ano){
+		List<Livro> livros = this.biblioRepo.findBeforeYear(ano);
+		return livros;
+		
+	}
+
+
+
 
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ApiBiblioteca.entity.Livro;
@@ -85,6 +86,53 @@ public class BiblioController {
 		}
 	}
 	
-
-
+	@GetMapping("/buscaano")
+	public ResponseEntity<List<Livro>> findByAno(@RequestParam int ano){
+		try {
+			List <Livro> livros = this.biblioService.findByAno(ano);
+			return new ResponseEntity<List<Livro>>(livros, HttpStatus.OK);
+			
+		} catch (Exception e) {
+			List<Livro> livros = null;
+			return new ResponseEntity<List<Livro>>(livros, HttpStatus.OK);
+		}
+	}
+	
+	@GetMapping("/buscaautor")
+	public ResponseEntity<List<Livro>> findByAutorNome(@RequestParam String nome){
+		try {
+			List <Livro> livros = this.biblioService.findByAutorNome(nome);
+			return new ResponseEntity<List<Livro>>(livros, HttpStatus.OK);
+			
+		} catch (Exception e) {
+			List<Livro> livros = null;
+			return new ResponseEntity<List<Livro>>(livros, HttpStatus.OK);
+		}
+	}
+	
+	@GetMapping("/buscaeditora")
+	public ResponseEntity<List<Livro>> findByEditora(@RequestParam long id_editora){
+		try {
+			List <Livro> livros = this.biblioService.findByEditora(id_editora);
+			return new ResponseEntity<List<Livro>>(livros, HttpStatus.OK);
+			
+		} catch (Exception e) {
+			List<Livro> livros = null;
+			return new ResponseEntity<List<Livro>>(livros, HttpStatus.OK);
+		}
+	}
+	
+	@GetMapping("/buscaanopos")
+	public ResponseEntity<List<Livro>> findBeforeYear(@RequestParam int ano){
+		try {
+			List <Livro> livros = this.biblioService.findBeforeYear(ano);
+			return new ResponseEntity<List<Livro>>(livros, HttpStatus.OK);
+			
+		} catch (Exception e) {
+			List<Livro> livros = null;
+			return new ResponseEntity<List<Livro>>(livros, HttpStatus.OK);
+		}
+	}
+	
+	
 }
