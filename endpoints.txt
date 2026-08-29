@@ -4,3 +4,26 @@ DELETE http://localhost:8081//biblioteca/apagar/{id}
 GET http://localhost:8081/biblioteca/buscar/{id}
 GET ALL http://localhost:8081/biblioteca/listatodos
 
+
+Exemplo de instancia Postman:
+{
+    "nome": "O Hobbit",
+    "ano": 1937,
+    "autor": {
+        "nome": "J. R. R. Tolkien",
+        "idade": 45
+    },
+    "editora": {
+        "nome": "George Allen & Unwin"
+    },
+    "proprietario": [
+        {
+            "nome": "Caio",
+            "idade": 29
+        },
+        {
+            "nome": "Érika",
+            "idade": 38
+        }
+    ]
+}
