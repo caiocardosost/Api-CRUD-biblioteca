@@ -1,0 +1,6 @@
+POST http://localhost:8081/biblioteca/salvarlivro
+PUT http://localhost:8081/biblioteca/alterar/{id}
+DELETE http://localhost:8081//biblioteca/apagar/{id}
+GET http://localhost:8081/biblioteca/buscar/{id}
+GET ALL http://localhost:8081/biblioteca/listatodos
+
